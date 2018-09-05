@@ -37,3 +37,9 @@ def greedy(items, maxCost, keyFunction):
             totalValue += itemsCopy[i].getValue()
     return (result, totalValue)     
     
+
+def testGreedy(items, constraint, keyFunction):
+    taken, val = greedy(items, constraint, keyFunction)
+    print('Total value of items taken =', val)
+    for item in taken:
+        print(' ', item)
