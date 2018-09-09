@@ -13,7 +13,13 @@ class food(object):
         return self.getValue() / self.getCost()
     def __str__(self):
         return self.name + ': <' + str(self.value)/ + ', ' + str(self.calories) + '>'
+
+
+
 def buildMenu(names, values, calories):
+    """names, values, calories lists of same length.
+       name a list of strings values and calories lists of numbers
+       returns list of Foods"""
     menu=[]
     for i in range(len(values)):
         menu.append(food(names[i], values[i], calories[i]))
@@ -29,7 +35,8 @@ def greedy(items, maxCost, keyFunction):
     itemsCopy = sorted(items, key = keyFunction,
     reverse = True)
     result = []
-    totalValue, totalCost = 0.0, 0.0
+    totalValue=0
+    totalCost=0.0
     for i in range(len(itemsCopy)):
         if (totalCost + itemsCopy[i].getCost()) <= maxCost:
             result.append(itemsCopy[i])
